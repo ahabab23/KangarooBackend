@@ -3,6 +3,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 import jwt
+import os
 from functools import wraps
 from datetime import datetime, timedelta
 from models import db, User, Post, Contact
@@ -220,4 +221,5 @@ def create_contact():
     return jsonify({'message': 'Contact submitted'}), 201
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
