@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 import jwt
 from functools import wraps
+from datetime import datetime, timedelta
 from models import db, User, Post, Contact
 import datetime
 from flask_migrate import Migrate
@@ -35,16 +36,24 @@ def token_required(f):
         return f(current_user, *args, **kwargs)
     return decorated
 
-@app.route('/api/auth/login', methods=['POST'])
+@app.route("/api/auth/login", methods=["POST"])
 def login():
     data = request.json
-    user = User.query.filter_by(email_address=data['email']).first()
-    if user and user.check_password(data['password']):
-        token = jwt.encode({'id': user.id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=2)},
-                            app.config['SECRET_KEY'], algorithm="HS256")
-        return jsonify({'token': token})
-    return jsonify({'message': 'Invalid credentials'}), 401
+    user = User.query.filter_by(email_address=data["email"]).first()
 
+    if user and user.check_password(data["password"]):
+        # Create a JWT that expires in 2 hours
+        token = jwt.encode(
+            {
+                "id": user.id,
+                "exp": datetime.utcnow() + timedelta(hours=2),
+            },
+            app.config["SECRET_KEY"],
+            algorithm="HS256"
+        )
+        return jsonify({"token": token})
+
+    return jsonify({"message": "Invalid credentials"}), 401
 # User Endpoints
 @app.route('/api/users', methods=['GET'])
 @token_required
