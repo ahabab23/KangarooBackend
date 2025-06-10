@@ -1,100 +1,75 @@
-from app import app
-from models import db, User, Post, Contact
 import json
-import os
 from datetime import datetime
+from app import app, db  # Make sure app is imported here
+from models import User, Contact, Address, Post, Header, MissionVision, Team, UserRole
+from dateutil import parser
+def load_json(filename):
+    with open(filename, "r") as f:
+        return json.load(f)
 
-# Load posts from JSON
-json_path = os.path.join(os.path.dirname(__file__), './projects.json')
-with open(json_path, 'r') as f:
-    projects_data = json.load(f)
-
-with app.app_context():
-    print("Deleting existing users and posts...")
-    User.query.delete()
-    Post.query.delete()
-    Contact.query.delete()
-    db.session.commit()
-
-    db.create_all()
-
-    # Create Users
-    admin = User(
-        full_name='Adm2in',
-        email_address='admin1@example.com',
-        telefone_number='00000002000',
-        role='Admin',
+def seed_users():
+    user = User(
+        full_name="Admin User",
+        email_address="admin@example.com",
+        telephone_number="1234567890",
+        role=UserRole.Admin
     )
-    admin.set_password('adminp2ass')
+    user.set_password("securepassword")
+    db.session.add(user)
 
-    editor = User(
-        full_name='Jane Editor',
-        email_address='jane.editor@example.com',
-        telefone_number='1234567890',
-        role='Admin'
+def seed_contacts():
+    contact = Contact(
+        name="John Doe",
+        email_address="john@example.com",
+        message="I'd love to know more about your services!"
     )
-    editor.set_password('editorpass')
+    db.session.add(contact)
+def seed_from_json(model, filename):
+    data = load_json(filename)
+    for entry in data:
+        # Remove keys not in the model
+        valid_keys = {col.name for col in model.__table__.columns}
+        filtered_entry = {k: v for k, v in entry.items() if k in valid_keys}
 
-    viewer = User(
-        full_name='Bob Vi3ewer',
-        email_address='bob.vi2ewer@example.com',
-        telefone_number='09287654321',
-        role='Viewer'
+        # Convert published to datetime if it's for Post
+        if model == Post and 'published' in filtered_entry:
+            try:
+                filtered_entry['published'] = parser.parse(filtered_entry['published'])
+            except Exception as e:
+                print(f"⚠️ Could not parse published date '{filtered_entry['published']}': {e}")
+                continue
+
+        db.session.add(model(**filtered_entry))
+
+def seed_addresses():
+    address = Address(
+        location="123 Innovation Way, Nairobi, Kenya",
+        email="info@example.com",
+        phone="+254700000000",
+        image_url="https://maps.example.com/embed/map-location"
     )
-    viewer.set_password('viewerpass')
+    db.session.add(address)
 
-    db.session.add_all([admin, editor, viewer])
-    db.session.commit()
-    print('Seeded 3 users.')
 
-    # Create Posts from JSON
-    def parse_date(date_str):
-        if not date_str:
-            return None
-        try:
-            # Try parsing "June 18, 2019" format
-            return datetime.strptime(date_str, '%B %d, %Y')
-        except ValueError:
-            # You can add more formats or return None
-            return None
-    post_objects = []
-    for project in projects_data:
-        published_str = project.get('Published',"")
-        published_date = parse_date(published_str)
-        post = Post(
-            id=project.get('Id'),
-            title=project.get('Title'),
-            description=project.get('Description'),
-            published=published_date,
-            category=project.get('Category'),
-            client=project.get('Client',),
-            image_url=project.get('Imageurl') # Support both keys
-        )
-        post_objects.append(post)
 
-    db.session.add_all(post_objects)
-    db.session.commit()
-    print(f'Seeded {len(post_objects)} posts from JSON.')
+def run_seed():
+    with app.app_context():  # ✅ Ensure the app context is active
+        db.drop_all()
+        db.create_all()
 
-    # Create Contacts
-    contact1 = Contact(
-        name='Alice Customer',
-        email_address='alice.customer@example.com',
-        message='I have a question about your pricing plans.'
-    )
+        # Seed from JSON
+        seed_from_json(Post, "./posts.json")
+        seed_from_json(Header, "./header.json")
+        seed_from_json(MissionVision, "./missionVission.json")
+        seed_from_json(Team, "./team.json")
 
-    contact2 = Contact(
-        name='Tom Prospect',
-        email_address='tom.prospect@example.com',
-        message='Can you send me a demo of the product?'
-    )
+        # Seed manually
+        seed_users()
+        seed_contacts()
+        seed_addresses()
 
-    contact3 = Contact(
-        name='Sara Feedback',
-        email_address='sara.feedback@example.com',
-        message='Great website! Just wanted to say thanks.'
-    )
+        db.session.commit()
+        print("✅ Database seeded successfully!")
 
-    db.session.add_all([contact1, contact2, contact3])
-    db.session.commit()
-    print('Seeded 3 contacts.')
+if __name__ == "__main__":
+    run_seed()

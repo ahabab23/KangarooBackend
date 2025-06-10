@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Detainee Case Management Information System (DeMIS Baarista)",
+    "tatus": "Completed",
+    "description": "Providing a customized electronic Detainee Case Management Information System (DeMIS Baarista) for the Federal Republic of Somalia. This project was an electronic solution, which supports that government Agency in their management of detainees through the life cycle of their stay. DeMIS to provide a greater continuity of care to detainees by having their complete case history available electronically, as well as management tools accessible through in a secure and protected way. DeMIS enabled the client\u2019s employees including personal officers, compliance officers, property department, programmes & activities co-ordinators can access, review and capture new data on tablets while providing care at the detainee\u2019s side. DeMIS provides a comprehensive suite of Apps that have been custom built for the client and manages the reception, induction, transfer and discharge of detainees throughout their facilities. They include dashboards which give an overview of key information for each detainee, allowing staff to identify risk quickly and easily, include trigger points for certain activities and ultimately create better outcomes. A detainee\u2019s complete case can be viewed and edited from within the detainee dossier",
+    "Published": "June 18, 2019",
+    "category": "Back-end and Front-end Application",
+    "client": "Federal Government Of Somalia",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967010/detainee2_kqreb8.jpg"
+  },
+  {
+    "id": 2,
+    "title": "IT Fiber Infrastructure Project",
+    "status": "Completed",
+    "description": "We connected different government offices to each other through fiber optic cables.",
+    "published": "December 01, 2019",
+    "category": "Back-end and Front-end Application",
+    "Client": "Federal Government Of Somalia",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967107/fibre_cxmeio.jpg"
+  },
+  {
+    "Id": 3,
+    "title": "Data Center IT Infrastructure (DCI) Project",
+    "status": "Completed",
+    "description": "We set up the Data Center IT Infrastructure (DCI) Project for Federal Government Implementation.",
+    "published": "June 18, 2019",
+    "category": "Data Center and Hardwares",
+    "client": "Federal Government Of Somalia",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967172/data_center-1_ouqq52.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Central Database for Registration (CDR) and Vehicle Registration System",
+    "description": "We implemented and delivered a comprehensive a Central Database for Registration (CDR) and Vehicle Registration System Projects for Federal Republic of Somalia. This project improved security accountability for wide government employees.",
+    "published": "November 01, 2018",
+    "category": "Back-end and Front-end Application",
+    "status": "Ongoing",
+    "Client": "Federal Government Of Somalia",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967262/vehicle_reg_zhn9g3.jpg"
+  },
+  {
+    "id": 5,
+    "title": "HRM Biometric System",
+    "status": "Pending",
+    "description": "We developed HRM Biometric System for utilizing biometrics system offers a real-time solution to the government HR managers, both for civil servants and in security sector. This project was an ambitious reform program in security sector to make it able, affordable, acceptable and accountable to FGS. After a successful implementation of HRM Biometric System, our project were spread over other security agencies such as SNA, Police and Custodial Corps and it is useful for FGC up-to-date supplementing the conventional practices of HR analytics. The system simplified multiple tasks of HR department that offers various human resource management solutions based on Biometrics that include: Employee Registration and Filing System, Biometric Attendance System, Biometric Payroll Management System, Visitor Management System, Canteen Management System, Document Management System.",
+    "published": "March 09, 2018",
+    "category": "Back-end and Front-end Application",
+    "Client": "Federal Government Of Somalia",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967361/hr_biometrics_ja4vkb.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Safe City Management Project",
+    "status": "Completed",
+    "description": "We had managed the Safe City Project Implementation with various vendors.",
+    "published": "January 10, 2017",
+    "category": "Back-end and Front-end Application",
+    "Client": "Federal Government Of Somalia",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967461/safe_obhvpq.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Micro-Finance Management Systems",
+    "status": "Completed",
+    "description": "We have developed micro-finance management systems. The system is assisting the organizations to manage the entire loans management to their clients is handled. These include: 1. Customer database, 2. Loan portfolios, 3. Interest and Loan Costs Management, 4. Customer Statement Management, 5. Periodic Financial Reports.",
+    "published": "October 12, 2019",
+    "category": "Design / Ideas",
+    "Client": "Fingrow Capital Limited - Nairobi - Kenya",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967556/micro-finance3_chvsgr.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Digital Loans Mobile Apps",
+    "status": "Completed",
+    "description": "We had managed the Safe City Project Implementation with various vendors. We implemented a digital loan lending platform for members of department of defence (Military). They apply and disbursed loans real-time at the comfort of their mobile phones.",
+    "published": "February 18, 2022",
+    "category": "Mobile Applications",
+    "Client": "Department Of Defence (DOD) - Government Of Kenya",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967640/digital_lending_ds8xdk.png"
+  },
+  {
+    "id": 9,
+    "title": "myAccountant App",
+    "status": "Completed",
+    "description": "Mobile application products launched by Kangaroo Solutions Limited (KSL) intended to aid small micro-enterprises manage their financial accounts at the comfort of their mobile phones. myAccountant app is targeting small business to achieve their financial freedom.",
+    "published": "June 20, 2023",
+    "category": "Mobile Application Development",
+    "Client": "Kangaroo Solutions Limited",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967732/myaccount_zthzac.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Human Resource Management System",
+    "status": "Completed",
+    "description": "This a robust human resource management system implemented to several clients including County Government of Nairobi. The system is managing county staff database and the personnel operations including: Leave Management System, Trainings and capacity building, Bio-metrics attendance, Staff appraisals.",
+    "published": "May 01, 2015",
+    "category": "Back-end and Front-end Development",
+    "Client": "County Government Of Nairobi",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967834/nairobi_county_bsgfmn.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Revenue Collection System",
+    "status": "Completed",
+    "description": "We were contracted by County Government of Kakamega and County Government Of Kiambu to Automate their revenue collections processes. We developed several modules to achieve that objective: Permit remittance management, Car parking fees management, Land rates fees management, Urban planning permits management.",
+    "published": "December 01, 2019",
+    "category": "Back-end and Front-end Development",
+    "Client": "County Government Of Kiambu and County Government Of Kakamega",
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1748967958/revenue_collections_ja9dvn.jpg"
+  }
+]

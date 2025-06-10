@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1749461043/gm_bw_rebrw1.jpg",
+    "name": "BRIAN AGWARI",
+    "position": "General Manager"
+  },
+  {
+    "id": 2,
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1749461649/cto_bw_wgagiu.jpg",
+    "name": "GRIFFINS OSERO",
+    "position": "Chief Technology Officer"
+  },
+  {
+    "id": 3,
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1749461569/lawyer_lvb5zr.jpg",
+    "name": "PETER O. OTIENO",
+    "position": "Advocate"
+  },
+  {
+    "id": 4,
+    "image_url": "https://res.cloudinary.com/dny9v95td/image/upload/v1749461518/marcus2_mu38gw.jpg",
+    "name": "MARCUS EZRA",
+    "position": "Director of Creative Design"
+  }
+]
