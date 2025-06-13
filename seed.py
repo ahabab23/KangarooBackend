@@ -15,6 +15,13 @@ def seed_users():
         role=UserRole.Admin
     )
     user.set_password("securepassword")
+    user = User(
+        full_name="Uwes Yere",
+        email_address="uwes@gmail.com",
+        telephone_number="1234567890",
+        role=UserRole.Admin
+    )
+    user.set_password("Uwes@2025")
     db.session.add(user)
 
 def seed_contacts():
