@@ -44,23 +44,26 @@ def token_required(f):
 # Login route
 @app.route("/api/auth/login", methods=["POST"])
 def login():
-    data = request.json or {}
-    email = data.get("email_address")
-    password = data.get("password")
+    data = request.json
+    
+    user = User.query.filter_by(email_address=data.get("email")).first()
+    
 
-    if not email or not password:
-        return jsonify({"message": "Email and password are required"}), 400
-
-    user = User.query.filter_by(email_address=email).first()
-    if user and user.check_password(password):
+    if user and user.check_password(data["password"]):
+        
         token = jwt.encode(
-            {"id": user.id, "exp": datetime.utcnow() + timedelta(hours=2)},
+            {
+                "id": user.id,
+                "exp": datetime.utcnow() + timedelta(hours=2),
+            },
             app.config["SECRET_KEY"],
             algorithm="HS256"
         )
         return jsonify({"token": token})
-    
+
+    print("Login failed: Invalid credentials")
     return jsonify({"message": "Invalid credentials"}), 401
+
 
 # ---------------- User Routes ----------------
 

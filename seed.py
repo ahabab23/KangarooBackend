@@ -6,16 +6,26 @@ from dateutil import parser
 def load_json(filename):
     with open(filename, "r") as f:
         return json.load(f)
-
 def seed_users():
+    # Delete existing user if exists (to ensure clean slate)
+    existing_user = User.query.filter_by(email_address="uwes@gmail.com").first()
+    if existing_user:
+        db.session.delete(existing_user)
+        db.session.commit()
+
+    # Create new user with correct password
     user = User(
-        full_name="Uwes Yere",
-        email_address="uwes@gmail.com",
+        full_name="Jamal Yere",
+        email_address="Jamal@gmail.com",
         telephone_number="1234567890",
         role=UserRole.Admin
     )
-    user.set_password("Uwes@2025")
+    user.set_password("Jamal@2025")
+    
     db.session.add(user)
+    db.session.commit()
+    
+
 
 def seed_contacts():
     contact = Contact(
