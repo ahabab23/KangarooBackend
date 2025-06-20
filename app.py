@@ -11,7 +11,6 @@ import os
 from models import db, User, Post, Contact,MissionVision,Team,Header,Address
 
 app = Flask(__name__)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     "mysql+pymysql://admin:Uwes20252025@app.cp4qq4kwm5xp.eu-north-1.rds.amazonaws.com:3306/app"
 )
@@ -46,7 +45,7 @@ def token_required(f):
 @app.route("/api/auth/login", methods=["POST"])
 def login():
     data = request.json
-    user = User.query.filter_by(email_address=data["email"]).first()
+    user = User.query.filter_by(email_address=data["email_address"]).first()
 
     if user and user.check_password(data["password"]):
         token = jwt.encode(

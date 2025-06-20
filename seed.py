@@ -9,13 +9,6 @@ def load_json(filename):
 
 def seed_users():
     user = User(
-        full_name="Admin User",
-        email_address="admin@example.com",
-        telephone_number="1234567890",
-        role=UserRole.Admin
-    )
-    user.set_password("securepassword")
-    user = User(
         full_name="Uwes Yere",
         email_address="uwes@gmail.com",
         telephone_number="1234567890",
