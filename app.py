@@ -11,7 +11,10 @@ import os
 from models import db, User, Post, Contact,MissionVision,Team,Header,Address
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = (
+    "mysql+pymysql://admin:Uwes20252025@app.cp4qq4kwm5xp.eu-north-1.rds.amazonaws.com:3306/app"
+)
 app.config['SECRET_KEY'] = 'your-secret-key'
 
 # Initialize extensions
